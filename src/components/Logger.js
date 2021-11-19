@@ -1,8 +1,25 @@
-const Logger = () => {
-    const updateLog = (e) => {
-        e.preventDefault();
+import uuid from 'react-uuid'
 
-        console.log('click')
+const Logger = ({ setShifts, totalHours, setTotalHours, totalMinutes, setTotalMinutes }) => {
+
+    const updateLog = (e) => {
+        e.preventDefault()
+
+        const form = document.getElementById('form')
+        const date = new Date(document.querySelector('#date').value)
+        const hours = document.querySelector('#hours').value
+        const minutes = document.querySelector('#minutes').value
+
+        setShifts(shifts => [...shifts, {
+            id: uuid(),
+            date: `${date.getMonth()}.${date.getDay()}.${date.getFullYear()}`,
+            time: `${hours}h ${minutes}m`
+        }])
+
+        setTotalHours(prevCount => prevCount + hours)
+        setTotalMinutes(prevCount => prevCount + minutes)
+
+        form.reset()
     }
     return (
         <div>

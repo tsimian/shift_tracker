@@ -9,3 +9,11 @@ body {
   height: auto;
   min-height: 100vh;
 }
+
+.dlt-btn {
+  color: #ff0000;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-self: center;   
+}
