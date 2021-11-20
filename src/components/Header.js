@@ -1,10 +1,7 @@
-const Header = ({ totalHours, totalMinutes }) => {
+const Header = () => {
     return (
-        <div className="container d-flex justify-content-between">
+        <div className="container d-flex justify-content-center">
             <h1>Shift Tracker</h1>
-            <div className="total-wrapper">
-                <span>{totalHours}h {totalMinutes}m</span>
-            </div>
         </div>
     )
 }

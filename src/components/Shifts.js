@@ -12,7 +12,8 @@ const Shifts = ({ shifts, setShifts }) => {
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Time</th>
+                        <th>Hours</th>
+                        <th>Minutes</th>
                         <th>Remove</th>
                     </tr>
                 </thead>
@@ -21,7 +22,8 @@ const Shifts = ({ shifts, setShifts }) => {
                         return (
                             <tr key={shift.id}>
                                 <td>{shift.date}</td>
-                                <td>{shift.time}</td>
+                                <td>{shift.hours}</td>
+                                <td>{shift.minutes}</td>
                                 <td>
                                     <div className="dlt-btn text-center" onClick={() => {
                                         const id = shift.id;

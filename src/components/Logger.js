@@ -1,6 +1,6 @@
 import uuid from 'react-uuid'
 
-const Logger = ({ setShifts, totalHours, setTotalHours, totalMinutes, setTotalMinutes }) => {
+const Logger = ({ setShifts }) => {
 
     const updateLog = (e) => {
         e.preventDefault()
@@ -16,9 +16,6 @@ const Logger = ({ setShifts, totalHours, setTotalHours, totalMinutes, setTotalMi
             hours: hours,
             minutes: minutes
         }])
-
-        setTotalHours(prevCount => prevCount + hours)
-        setTotalMinutes(prevCount => prevCount + minutes)
 
         form.reset()
     }
