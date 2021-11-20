@@ -7,6 +7,7 @@ const TotalTime = ({ shifts }) => {
     let totalHours = allHours.reduce((a, b) => a + b, 0)
     let totalMins = allMins.reduce((a, b) => a + b, 0)
 
+
     return (
         <div className="container total-wrapper d-flex justify-content-evenly">
             <h5>Total Time</h5>

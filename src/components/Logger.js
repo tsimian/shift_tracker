@@ -32,15 +32,15 @@ const Logger = ({ setShifts }) => {
             {showForm && <form onSubmit={updateLog} id="form">
                 <div className="form-group">
                     <label htmlFor="date">Date</label>
-                    <input type="date" className="form-control" id="date" />
+                    <input type="date" className="form-control" id="date" required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="hours">Hours</label>
-                    <input type="number" className="form-control" id="hours" />
+                    <input type="number" className="form-control" id="hours" placeholder="0" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="minutes">Minutes</label>
-                    <input type="number" className="form-control" id="minutes" />
+                    <input type="number" className="form-control" id="minutes" placeholder="0" />
                 </div>
                 <button type="submit" className="btn btn-success mt-3">Submit</button>
             </form>

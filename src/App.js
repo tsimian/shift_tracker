@@ -17,15 +17,12 @@ function App() {
     const storedShifts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (storedShifts) {
       setShifts(storedShifts)
-      // setTotalHours(storedShifts.reduce((acc, curr) => {
-      //   acc + curr.time;
-      // }, totalHours))
     }
-}, []);
+  }, []);
 
-useEffect(() => {
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(shifts))
-}, [shifts]);
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(shifts))
+  }, [shifts]);
 
   
   return (
