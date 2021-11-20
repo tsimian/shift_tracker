@@ -10,6 +10,11 @@ body {
   min-height: 100vh;
 }
 
+#add-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .dlt-btn {
   color: #ff0000;
   display: flex;
