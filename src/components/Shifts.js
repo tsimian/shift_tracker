@@ -34,7 +34,7 @@ const Shifts = ({ shifts, setShifts }) => {
                         )
                     })}
                 </tbody>
-            </table> : <h5>You have no shifts logged.</h5>}
+            </table> : <h5>You have no shifts logged.</h5> }
         </div>
     )
 }

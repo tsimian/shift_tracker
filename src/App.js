@@ -46,7 +46,7 @@ useEffect(() => {
   return (
     <div className="App container">
       <Header totalHours={totalHours} totalMinutes={totalMinutes} />
-      <Logger setShifts={setShifts} totalHours={totalHours} setTotalHours={setTotalHours} totalMinutes={totalMinutes} setTotalMinutes={setTotalMinutes} />
+      <Logger shifts={shifts} setShifts={setShifts} totalHours={totalHours} setTotalHours={setTotalHours} totalMinutes={totalMinutes} setTotalMinutes={setTotalMinutes} />
       <Shifts shifts={shifts} setShifts={setShifts} />
       <Footer />
     </div>

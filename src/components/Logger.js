@@ -6,14 +6,15 @@ const Logger = ({ setShifts, totalHours, setTotalHours, totalMinutes, setTotalMi
         e.preventDefault()
 
         const form = document.getElementById('form')
-        const date = new Date(document.querySelector('#date').value)
+        const date = document.querySelector('#date').value
         const hours = document.querySelector('#hours').value
         const minutes = document.querySelector('#minutes').value
 
         setShifts(shifts => [...shifts, {
             id: uuid(),
-            date: `${date.getMonth()}.${date.getDay()}.${date.getFullYear()}`,
-            time: `${hours}h ${minutes}m`
+            date: date,
+            hours: hours,
+            minutes: minutes
         }])
 
         setTotalHours(prevCount => prevCount + hours)
@@ -21,6 +22,7 @@ const Logger = ({ setShifts, totalHours, setTotalHours, totalMinutes, setTotalMi
 
         form.reset()
     }
+
     return (
         <div>
             <form onSubmit={updateLog} id="form">
