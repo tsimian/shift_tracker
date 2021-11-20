@@ -36,11 +36,11 @@ const Logger = ({ setShifts }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="hours">Hours</label>
-                    <input type="number" className="form-control" id="hours" placeholder="0" />
+                    <input type="number" className="form-control" id="hours" placeholder="0" min="0" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="minutes">Minutes</label>
-                    <input type="number" className="form-control" id="minutes" placeholder="0" />
+                    <input type="number" className="form-control" id="minutes" placeholder="0" min="0" max="59" />
                 </div>
                 <button type="submit" className="btn btn-success mt-3">Submit</button>
             </form>
