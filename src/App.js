@@ -30,7 +30,7 @@ function App() {
       <Header />
       <Logger shifts={shifts} setShifts={setShifts} />
       <Shifts shifts={shifts} setShifts={setShifts} />
-      <TotalTime shifts={shifts} />
+      {shifts.length > 0 ? <TotalTime shifts={shifts} /> : ''}
       <Footer />
     </div>
   );
