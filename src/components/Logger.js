@@ -9,9 +9,17 @@ const Logger = ({ setShifts }) => {
         e.preventDefault()
 
         const form = document.getElementById('form')
-        const date = document.querySelector('#date').value
-        const hours = document.querySelector('#hours').value
-        const minutes = document.querySelector('#minutes').value
+        let date = document.querySelector('#date').value
+        let hours = document.querySelector('#hours').value
+        let minutes = document.querySelector('#minutes').value
+
+        if (!hours) {
+            hours = 0
+        }
+
+        if (!minutes) {
+            minutes = 0
+        }
 
         setShifts(shifts => [...shifts, {
             id: uuid(),
