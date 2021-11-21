@@ -8,7 +8,7 @@ const TotalTime = ({ shifts }) => {
     let sumHours = allHours.reduce((a, b) => a + b, 0)
     let sumMins = allMins.reduce((a, b) => a + b, 0)
 
-    // Convert sum of hours and minutes into minutes
+    // Convert sum of hours and minutes into minutes for conversion
     const totalMins = (sumHours * 60) + sumMins
 
 
