@@ -11,7 +11,7 @@ const TotalTime = ({ shifts }) => {
     return (
         <div className="container total-wrapper d-flex justify-content-evenly">
             <h5>Total Time</h5>
-            <p>{totalMins >= 60 ? totalHours += totalMins % 60 : totalHours}</p>
+            <p>{totalMins >= 60 ? totalHours += 1 : totalHours}</p>
             <p>{totalMins >= 60 ? totalMins % 60 : totalMins}</p>
         </div>
     )

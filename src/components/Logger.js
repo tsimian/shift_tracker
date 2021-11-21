@@ -50,7 +50,7 @@ const Logger = ({ setShifts }) => {
                     <label htmlFor="minutes">Minutes</label>
                     <input type="number" className="form-control" id="minutes" placeholder="0" min="0" max="59" />
                 </div>
-                <button type="submit" className="btn btn-success mt-3">Submit</button>
+                <button type="submit" className="btn btn-success mt-3" id="submit-btn">Submit</button>
             </form>
             }   
         </div>
