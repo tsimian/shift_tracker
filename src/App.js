@@ -5,28 +5,57 @@ import Shifts from './components/Shifts'
 import TotalTime from './components/TotalTime'
 import Footer from './components/Footer'
 
-const LOCAL_STORAGE_KEY = 'shift_tracker.shifts'
-
 function App() {
   const [shifts, setShifts] = useState([])
 
   useEffect(() => {
-    const storedShifts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (storedShifts) {
-      setShifts(storedShifts)
+    const getShifts = async () => {
+      const shiftsFromServer = await fetchShifts()
+
+      setShifts(shiftsFromServer)
     }
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(shifts))
-  }, [shifts]);
+    getShifts()
+  }, [])
 
+  // Fetch Shifts
+  const fetchShifts = async () => {
+    const res = await fetch('http://localhost:5000/shifts')
+    const data = await res.json()
+    
+    return data
+  }
+
+  // Add Shift
+  const addShift = async (shift) => {
+    const res = await fetch('http://localhost:5000/shifts', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(shift)
+    })
+
+    const data = await res.json()
+
+    setShifts([...shifts, data])
+  }
+
+  // Delete Shift
+  const deleteShift = async (id) => {
+    await fetch(`http://localhost:5000/shifts/${id}`, {
+        method: 'DELETE'
+    })
+
+    setShifts(shifts.filter(shift => shift.id !== id))
+
+}
   
   return (
     <div className="App container">
       <Header />
-      <Logger shifts={shifts} setShifts={setShifts} />
-      <Shifts shifts={shifts} setShifts={setShifts} />
+      <Logger onAdd={addShift} />
+      <Shifts shifts={shifts} onDelete={deleteShift} />
       {shifts.length > 0 ? <TotalTime shifts={shifts} /> : ''}
       <Footer />
     </div>

@@ -1,32 +1,26 @@
 import {useState} from 'react'
-import uuid from 'react-uuid'
 
-const Logger = ({ setShifts }) => {
+const Logger = ({ onAdd }) => {
     const [showForm, setShowForm] = useState(false);
+    const [date, setDate] = useState('')
+    const [hours, setHours] = useState(0)
+    const [minutes, setMinutes] = useState(0)
 
 
     const updateLog = (e) => {
         e.preventDefault()
 
         const form = document.getElementById('form')
-        let date = document.querySelector('#date').value
-        let hours = document.querySelector('#hours').value
-        let minutes = document.querySelector('#minutes').value
 
         if (!hours) {
-            hours = 0
+            setHours(0)
         }
 
         if (!minutes) {
-            minutes = 0
+            setMinutes(0)
         }
 
-        setShifts(shifts => [...shifts, {
-            id: uuid(),
-            date: date,
-            hours: hours,
-            minutes: minutes
-        }])
+        onAdd({ date, hours, minutes })
 
         form.reset()
     }
@@ -40,15 +34,31 @@ const Logger = ({ setShifts }) => {
             {showForm && <form onSubmit={updateLog} id="form">
                 <div className="form-group">
                     <label htmlFor="date">Date</label>
-                    <input type="date" className="form-control" id="date" required/>
+                    <input 
+                        type="date" className="form-control" 
+                        id="date"
+                        onChange={(e) => setDate(e.target.value)} 
+                        required
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="hours">Hours</label>
-                    <input type="number" className="form-control" id="hours" placeholder="0" min="0" />
+                    <input 
+                        type="number" className="form-control" 
+                        id="hours"
+                        onChange={(e) => setHours(e.target.value)}
+                        placeholder="0" min="0" 
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="minutes">Minutes</label>
-                    <input type="number" className="form-control" id="minutes" placeholder="0" min="0" max="59" />
+                    <input 
+                        type="number" className="form-control" 
+                        id="minutes"
+                        onChange={(e) => setMinutes(e.target.value)}
+                        placeholder="0" min="0" 
+                        max="59" 
+                    />
                 </div>
                 <button type="submit" className="btn btn-success mt-3" id="submit-btn">Submit</button>
             </form>

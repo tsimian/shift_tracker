@@ -1,10 +1,6 @@
 import Shift from './Shift'
 
-const Shifts = ({ shifts, setShifts }) => {
-    const onDelete = async (id) => {
-        setShifts(shifts.filter(shift => shift.id !== id))
-
-    }
+const Shifts = ({ shifts, onDelete }) => {
 
     return (
         <div className="container mt-3">
