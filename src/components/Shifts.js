@@ -5,7 +5,7 @@ const Shifts = ({ shifts, onDelete }) => {
     return (
         <div className="container mt-3">
             { shifts.length > 0 ? <table className="table table-striped table-bordered table-hover table-condensed">
-                <thead>
+                <thead className="text-center">
                     <tr>
                         <th>Date</th>
                         <th>Hours</th>
@@ -13,7 +13,7 @@ const Shifts = ({ shifts, onDelete }) => {
                         <th>Remove</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-center">
                     {shifts.map(shift => {
                         return (
                             <Shift key={shift.id} shift={shift} onDelete={onDelete} />

@@ -52,7 +52,7 @@ function App() {
 }
   
   return (
-    <div className="App container">
+    <div className="App container card">
       <Header />
       <Logger onAdd={addShift} />
       <Shifts shifts={shifts} onDelete={deleteShift} />
