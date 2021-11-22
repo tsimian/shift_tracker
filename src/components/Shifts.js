@@ -1,4 +1,4 @@
-import { FaBan } from 'react-icons/fa'
+import Shift from './Shift'
 
 const Shifts = ({ shifts, setShifts }) => {
     const onDelete = async (id) => {
@@ -20,19 +20,7 @@ const Shifts = ({ shifts, setShifts }) => {
                 <tbody>
                     {shifts.map(shift => {
                         return (
-                            <tr key={shift.id}>
-                                <td>{shift.date}</td>
-                                <td>{shift.hours}</td>
-                                <td>{shift.minutes}</td>
-                                <td>
-                                    <div className="dlt-btn text-center" onClick={() => {
-                                        const id = shift.id;
-                                        onDelete(id)
-                                        }}>
-                                        <FaBan />
-                                    </div>
-                                </td>
-                            </tr>
+                            <Shift key={shift.id} shift={shift} onDelete={onDelete} />
                         )
                     })}
                 </tbody>

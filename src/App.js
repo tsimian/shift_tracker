@@ -10,9 +10,6 @@ const LOCAL_STORAGE_KEY = 'shift_tracker.shifts'
 function App() {
   const [shifts, setShifts] = useState([])
 
-  // const [totalHours, setTotalHours] = useState(0)
-  // const [totalMinutes, setTotalMinutes] = useState(0)
-
   useEffect(() => {
     const storedShifts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (storedShifts) {
