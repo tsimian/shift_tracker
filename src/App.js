@@ -21,7 +21,7 @@ function App() {
     transition: "0.25s ease-in"
   }
 
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState('dark')
 
   useEffect(() => {
     const getShifts = async () => {
