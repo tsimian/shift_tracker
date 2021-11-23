@@ -12,6 +12,7 @@ const Logger = ({ onAdd, theme, setTheme }) => {
 
         const form = document.getElementById('form')
 
+        // Handle empty input fields
         if (!hours) {
             setHours(0)
         }
