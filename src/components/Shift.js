@@ -1,4 +1,4 @@
-import { FaBan } from 'react-icons/fa'
+import { FaMinusCircle } from 'react-icons/fa'
 
 const Shift = ({ shift, onDelete }) => {
     return (
@@ -12,7 +12,7 @@ const Shift = ({ shift, onDelete }) => {
                     const id = shift.id;
                     onDelete(id)
                 }}>
-                <FaBan />
+                <FaMinusCircle />
                 </div>
             </td>
         </tr>
