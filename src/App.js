@@ -67,7 +67,7 @@ function App() {
 }
   
   return (
-    <div className="App container card" style={theme === 'light' ? lightTheme : darkTheme}>
+    <div className="App" style={theme === 'light' ? lightTheme : darkTheme}>
       <Header  theme={theme} setTheme={setTheme} />
       <Logger onAdd={addShift} />
       <Shifts shifts={shifts} onDelete={deleteShift} theme={theme} />
