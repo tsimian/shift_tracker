@@ -31,7 +31,7 @@ const Logger = ({ onAdd }) => {
                 {/* Form Add/Cancel Btns */}
                 <button type="submit" id="add-btn" className={!showForm ? "btn btn-primary mt-3" : "btn btn-danger mt-3"} onClick={() => setShowForm(!showForm)}>{!showForm ? 'Add Shift' : 'Cancel'}</button>
             </div>
-            {showForm && <form onSubmit={updateLog} id="form">
+            {showForm && <form onSubmit={updateLog} id="form" className="mt-2">
                 <div className="form-group">
                     <label htmlFor="date">Date</label>
                     <input 
