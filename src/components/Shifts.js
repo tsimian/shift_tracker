@@ -1,10 +1,10 @@
 import Shift from './Shift'
 
-const Shifts = ({ shifts, onDelete }) => {
+const Shifts = ({ shifts, onDelete, theme }) => {
 
     return (
         <div className="container mt-3">
-            { shifts.length > 0 ? <table className="table table-striped table-bordered table-hover table-condensed">
+            { shifts.length > 0 ? <table className={theme === 'light' ? "table table-striped table-bordered table-hover table-condensed" : "table table-dark table-striped table-bordered table-condensed"}>
                 <thead className="text-center">
                     <tr>
                         <th>Date</th>

@@ -8,6 +8,21 @@ import Footer from './components/Footer'
 function App() {
   const [shifts, setShifts] = useState([])
 
+  // Theme/Styles
+  const lightTheme = {
+    backgroundColor: "#fff",
+    color: "#000",
+    transition: "0.25s ease-in"
+  }
+
+  const darkTheme = {
+    backgroundColor: "#000",
+    color: "#fff",
+    transition: "0.25s ease-in"
+  }
+
+  const [theme, setTheme] = useState('light')
+
   useEffect(() => {
     const getShifts = async () => {
       const shiftsFromServer = await fetchShifts()
@@ -52,10 +67,10 @@ function App() {
 }
   
   return (
-    <div className="App container card">
-      <Header />
+    <div className="App container card" style={theme === 'light' ? lightTheme : darkTheme}>
+      <Header  theme={theme} setTheme={setTheme} />
       <Logger onAdd={addShift} />
-      <Shifts shifts={shifts} onDelete={deleteShift} />
+      <Shifts shifts={shifts} onDelete={deleteShift} theme={theme} />
       {shifts.length > 0 ? <TotalTime shifts={shifts} /> : ''}
       <Footer />
     </div>
