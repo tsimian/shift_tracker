@@ -3,6 +3,9 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 const Header = ({ theme, setTheme }) => {
     
     const toggleTheme = () => {
+        const body = document.querySelector('body')
+        body.style = theme
+
         if (theme === 'light') {
             setTheme('dark')
         }   else {
