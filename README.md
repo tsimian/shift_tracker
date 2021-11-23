@@ -4,7 +4,7 @@ An app designed to keep track of hours worked each month
 ![App Screenshot](./public/screenshot.jpg)
 
 ## Why?
-I wanted to create something useful for personal use to keep track of work hours.
+I wanted to create something for personal use to keep track of work hours.
 
 ## Todos
 - Add ability to edit shifts
