@@ -1,26 +1,8 @@
-import { FaMoon, FaSun } from 'react-icons/fa';
-
-const Header = ({ theme, setTheme }) => {
-    
-    const toggleTheme = () => {
-        const body = document.querySelector('body')
-        body.style = theme
-
-        if (theme === 'light') {
-            setTheme('dark')
-        }   else {
-            setTheme('light')
-        }
-    }
+const Header = () => {
 
     return (
-        <div className="container d-flex justify-content-between">
+        <div className="text-center">
             <h1>Shift Tracker</h1>
-
-            {/* Theme Toggler Btn */}
-            <button className={theme === 'light' ? "btn btn-dark mt-3" : "btn btn-light mt-3" } id="theme-toggler" onClick={toggleTheme}>
-                {theme === 'light' ? <FaMoon /> : <FaSun />}
-            </button>
         </div>
     )
 }

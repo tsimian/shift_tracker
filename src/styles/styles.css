@@ -10,6 +10,21 @@ body {
   min-height: 100vh;
 }
 
+.btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#submit-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 #theme-toggler {
   display: flex;
   justify-content: space-around;
@@ -23,14 +38,8 @@ body {
   box-shadow: none;
 }
 
-#add-btn:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-#submit-btn:focus {
-  outline: none;
-  box-shadow: none;
+.table {
+  transition: 0.5s ease-in;
 }
 
 .dlt-btn {

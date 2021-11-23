@@ -1,11 +1,11 @@
 import {useState} from 'react'
+import { FaMoon, FaSun } from 'react-icons/fa';
 
-const Logger = ({ onAdd }) => {
+const Logger = ({ onAdd, theme, setTheme }) => {
     const [showForm, setShowForm] = useState(false);
     const [date, setDate] = useState('')
     const [hours, setHours] = useState(0)
     const [minutes, setMinutes] = useState(0)
-
 
     const updateLog = (e) => {
         e.preventDefault()
@@ -25,12 +25,39 @@ const Logger = ({ onAdd }) => {
         form.reset()
     }
 
+    const toggleTheme = () => {
+
+        if (theme === 'light') {
+            setTheme('dark')
+        }   else {
+            setTheme('light')
+        }
+    }
+
     return (
         <div className="container">
             <div className="btn-wrapper">
+
                 {/* Form Add/Cancel Btns */}
-                <button type="submit" id="add-btn" className={!showForm ? "btn btn-primary mt-3" : "btn btn-danger mt-3"} onClick={() => setShowForm(!showForm)}>{!showForm ? 'Add Shift' : 'Cancel'}</button>
+                <button 
+                    type="submit" 
+                    id="add-btn" 
+                    className={!showForm ? "btn btn-primary mt-3" : "btn btn-danger mt-3"} 
+                    onClick={() => setShowForm(!showForm)}
+                >
+                    {!showForm ? 'Add Shift' : 'Cancel'}
+                </button>
+
+                {/* Theme Toggler Btn */}
+                <button 
+                    className={theme === 'light' ? "btn btn-dark mt-3" : "btn btn-light mt-3" } id="theme-toggler" 
+                    onClick={toggleTheme}
+                >
+                    {theme === 'light' ? <FaMoon /> : <FaSun />}
+                </button>
             </div>
+
+            {/* Form w/ Toggle */}
             {showForm && <form onSubmit={updateLog} id="form" className="mt-2">
                 <div className="form-group">
                     <label htmlFor="date">Date</label>
