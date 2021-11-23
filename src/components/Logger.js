@@ -26,13 +26,13 @@ const Logger = ({ onAdd, theme, setTheme }) => {
     }
 
     const toggleTheme = () => {
-
         if (theme === 'light') {
             setTheme('dark')
         }   else {
             setTheme('light')
         }
     }
+    
 
     return (
         <div className="container">
