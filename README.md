@@ -12,6 +12,9 @@ I wanted to create something for personal use to keep track of work hours.
 - Create user login
 - Create separate months folders
 
+## Bugs
+- If 0 hours or 0 minutes are logged consecutively it will log a value of 1 for each
+
 ## Run
 Clone the repository, then...
 ```bash
