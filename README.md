@@ -13,7 +13,7 @@ I wanted to create something for personal use to keep track of work hours.
 - Create separate months folders
 
 ## Bugs
-- If 1 hour and 0 minutes or vice versa are input consecutively, the one value in either will decrease to zero
+- If 1 hour and 0 minutes or vice versa are input consecutively, the 1 value in either will decrease to zero
 
 ## Run
 Clone the repository, then...
