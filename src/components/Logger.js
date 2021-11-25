@@ -24,6 +24,8 @@ const Logger = ({ onAdd, theme, setTheme }) => {
         onAdd({ date, hours, minutes })
 
         form.reset()
+        setHours(0)
+        setMinutes(0)
     }
 
     const toggleTheme = () => {
@@ -75,7 +77,9 @@ const Logger = ({ onAdd, theme, setTheme }) => {
                         type="number" className="form-control" 
                         id="hours"
                         onChange={(e) => setHours(e.target.value)}
-                        placeholder="0" min="0" 
+                        onWheel={(e) => e.target.blur()}
+                        placeholder="0" 
+                        min="0" 
                     />
                 </div>
                 <div className="form-group">
@@ -84,7 +88,9 @@ const Logger = ({ onAdd, theme, setTheme }) => {
                         type="number" className="form-control" 
                         id="minutes"
                         onChange={(e) => setMinutes(e.target.value)}
-                        placeholder="0" min="0" 
+                        onWheel={(e) => e.target.blur()}
+                        placeholder="0" 
+                        min="0" 
                         max="59" 
                     />
                 </div>
