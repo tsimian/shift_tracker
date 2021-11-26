@@ -76,7 +76,7 @@ const Logger = ({ onAdd, theme, setTheme }) => {
                     <input 
                         type="number" className="form-control" 
                         id="hours"
-                        onChange={(e) => setHours(e.target.value)}
+                        onInput={(e) => setHours(e.target.value)}
                         onWheel={(e) => e.target.blur()}
                         placeholder="0" 
                         min="0" 
@@ -87,7 +87,7 @@ const Logger = ({ onAdd, theme, setTheme }) => {
                     <input 
                         type="number" className="form-control" 
                         id="minutes"
-                        onChange={(e) => setMinutes(e.target.value)}
+                        onInput={(e) => setMinutes(e.target.value)}
                         onWheel={(e) => e.target.blur()}
                         placeholder="0" 
                         min="0" 
