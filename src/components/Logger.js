@@ -12,19 +12,22 @@ const Logger = ({ onAdd, shifts, theme, setTheme }) => {
 
         const form = document.getElementById('form')
 
+        // Handle existing shift
+        if (shifts.some(shift => shift.date === date)) {
+            alert('There is already a shift logged with that date')
+            form.reset()
+            return
+        }
+
         // Handle empty input fields
         if (!hours && !minutes) {
             alert('Time logged must be greater than 0 minutes')
+            form.reset()
             return
         }   else if (!hours) {
             setHours(0)
         }   else if (!minutes) {
             setMinutes(0)
-        }
-
-        // Handle existing shift
-        if (shifts.some(shift => shift.date === date)) {
-            alert('There is already a shift logged with that date')
         }
 
         onAdd({ date, hours, minutes })
