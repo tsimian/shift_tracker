@@ -2,8 +2,6 @@
   "name": "shift_tracker",
   "version": "0.1.0",
   "description": "An app to track shifts",
-  "author": "Robert Lehmann",
-  "license": "ISC",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
@@ -24,6 +22,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server --watch db.json --port 5000"
+  },
+  "author": "Robert Lehmann",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lehmannrobb/shift_tracker.git"
   },
   "eslintConfig": {
     "extends": [
