@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa';
 
-const Logger = ({ onAdd, theme, setTheme }) => {
+const Logger = ({ onAdd, shifts, theme, setTheme }) => {
     const [showForm, setShowForm] = useState(false);
     const [date, setDate] = useState('')
     const [hours, setHours] = useState(0)
@@ -13,12 +13,18 @@ const Logger = ({ onAdd, theme, setTheme }) => {
         const form = document.getElementById('form')
 
         // Handle empty input fields
-        if (!hours) {
+        if (!hours && !minutes) {
+            alert('Time logged must be greater than 0 minutes')
+            return
+        }   else if (!hours) {
             setHours(0)
+        }   else if (!minutes) {
+            setMinutes(0)
         }
 
-        if (!minutes) {
-            setMinutes(0)
+        // Handle existing shift
+        if (shifts.some(shift => shift.date === date)) {
+            alert('There is already a shift logged with that date')
         }
 
         onAdd({ date, hours, minutes })

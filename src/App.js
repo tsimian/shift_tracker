@@ -69,7 +69,7 @@ function App() {
   return (
     <div className="App" style={theme === 'light' ? lightTheme : darkTheme}>
       <Header />
-      <Logger onAdd={addShift} theme={theme} setTheme={setTheme} />
+      <Logger onAdd={addShift} shifts={shifts} theme={theme} setTheme={setTheme} />
       <Shifts shifts={shifts} onDelete={deleteShift} theme={theme} />
       {shifts.length > 0 ? <TotalTime shifts={shifts} /> : ''}
       <Footer />
