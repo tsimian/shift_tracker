@@ -76,7 +76,7 @@ const Logger = ({ onAdd, shifts, theme, setTheme }) => {
                     <input 
                         type="date" className="form-control" 
                         id="date"
-                        onChange={(e) => setDate(e.target.value)} 
+                        onChange={(e) => setDate(e.target.value.split('-').reverse().join('.'))} 
                         required
                     />
                 </div>
