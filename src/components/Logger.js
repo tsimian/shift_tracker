@@ -49,11 +49,6 @@ const Logger = ({ onAdd, onUpdate, shifts, showForm, setShowForm, theme, setThem
             form.reset()
             
         }
-
-        // console.log(date, hours, minutes)
-
-        // onAdd({ date, hours, minutes })
-        // form.reset()
         
     }
 
