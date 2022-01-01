@@ -1,15 +1,16 @@
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Logger = ({ onAdd, onUpdate, shifts, showForm, setShowForm, theme, setTheme }) => {
+
+    const form = document.getElementById('form')
     
-    // const [date, setDate] = useState('')
-    // const [hours, setHours] = useState(0)
-    // const [minutes, setMinutes] = useState(0)
+    const openForm = () => {
+        form.reset()
+        setShowForm(!showForm)
+    }
 
     const updateLog = (e) => {
         e.preventDefault()
-
-        const form = document.getElementById('form')
         
         let date = document.getElementById('date').value
         let hours = document.getElementById('hours').value
@@ -74,7 +75,7 @@ const Logger = ({ onAdd, onUpdate, shifts, showForm, setShowForm, theme, setThem
                     type="submit" 
                     id="add-btn" 
                     className={!showForm ? "btn btn-primary mt-3" : "btn btn-danger mt-3"} 
-                    onClick={() => setShowForm(!showForm)}
+                    onClick={openForm}
                 >
                     {!showForm ? 'Add Shift' : 'Cancel'}
                 </button>
