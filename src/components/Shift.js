@@ -1,6 +1,6 @@
-import { FaMinusCircle } from 'react-icons/fa'
+import { FaMinusCircle, FaEdit } from 'react-icons/fa'
 
-const Shift = ({ shift, onDelete }) => {
+const Shift = ({ shift, onDelete, onEdit }) => {
     return (
         <>
         <tr>
@@ -13,6 +13,13 @@ const Shift = ({ shift, onDelete }) => {
                     onDelete(id)
                 }}>
                 <FaMinusCircle />
+                </div>
+            </td>
+            <td>
+                <div className="edit-btn text-center" onClick={() => {
+                    onEdit(shift)
+                }}>
+                <FaEdit/>
                 </div>
             </td>
         </tr>

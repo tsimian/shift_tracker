@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 
 function App() {
   const [shifts, setShifts] = useState([])
+  const [showForm, setShowForm] = useState(false)
 
   // Theme/Styles
   const lightTheme = {
@@ -65,12 +66,41 @@ function App() {
     setShifts(shifts.filter(shift => shift.id !== id))
 
 }
+
+  // Fill Form
+  const fillForm = (shift) => {
+    setShowForm(true)
+
+    let formDate = document.getElementById('date')
+    let formHours = document.getElementById('hours')
+    let formMins = document.getElementById('minutes')
+
+    formDate.value = shift.date 
+    formHours.value = shift.hours
+    formMins.value = shift.minutes
+
+  }
+
+  // Update Shift
+  const updateShift = async (shift) => {
+    await fetch(`http://localhost:5000/shifts/${shift.id}`, {
+      method: 'PATCH',
+      headers: {
+         'Accept': "application/json",
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(shift)
+    })
+
+    setShifts([...shifts])
+
+  }
   
   return (
     <div className="App" style={theme === 'light' ? lightTheme : darkTheme}>
       <Header />
-      <Logger onAdd={addShift} shifts={shifts} theme={theme} setTheme={setTheme} />
-      <Shifts shifts={shifts} onDelete={deleteShift} theme={theme} />
+      <Logger onAdd={addShift} onUpdate={updateShift} shifts={shifts} showForm={showForm} setShowForm={setShowForm} theme={theme} setTheme={setTheme} />
+      <Shifts shifts={shifts} onDelete={deleteShift} onEdit={fillForm} theme={theme} />
       {shifts.length > 0 ? <TotalTime shifts={shifts} /> : ''}
       <Footer />
     </div>

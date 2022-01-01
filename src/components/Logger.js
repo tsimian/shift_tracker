@@ -1,23 +1,19 @@
-import {useState} from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa';
 
-const Logger = ({ onAdd, shifts, theme, setTheme }) => {
-    const [showForm, setShowForm] = useState(false);
-    const [date, setDate] = useState('')
-    const [hours, setHours] = useState(0)
-    const [minutes, setMinutes] = useState(0)
+const Logger = ({ onAdd, onUpdate, shifts, showForm, setShowForm, theme, setTheme }) => {
+    
+    // const [date, setDate] = useState('')
+    // const [hours, setHours] = useState(0)
+    // const [minutes, setMinutes] = useState(0)
 
     const updateLog = (e) => {
         e.preventDefault()
 
         const form = document.getElementById('form')
-
-        // Handle existing shift
-        if (shifts.some(shift => shift.date === date)) {
-            alert('There is already a shift logged with that date')
-            form.reset()
-            return
-        }
+        
+        let date = document.getElementById('date').value
+        let hours = document.getElementById('hours').value
+        let minutes = document.getElementById('minutes').value
 
         // Handle empty input fields
         if (!hours && !minutes) {
@@ -25,16 +21,39 @@ const Logger = ({ onAdd, shifts, theme, setTheme }) => {
             form.reset()
             return
         }   else if (!hours) {
-            setHours(0)
+            hours = 0
         }   else if (!minutes) {
-            setMinutes(0)
+            minutes = 0
         }
 
-        onAdd({ date, hours, minutes })
+        // Handle existing shift
+        if (shifts.some(shift => shift.date === date)) {
+            for (let i = 0; i < shifts.length; i++) {
+                let curr = shifts[i]
+        
+                if (curr.date === date) {
+                    curr.hours = parseInt(curr.hours) + parseInt(hours)
+                    curr.minutes = parseInt(curr.minutes) + parseInt(minutes)
+        
+                    onUpdate(curr)
+                    form.reset()
+                    return
+                }
+            }
 
-        form.reset()
-        setHours(0)
-        setMinutes(0)
+        }   else {
+
+            // Add new shift
+            onAdd({ date, hours, minutes })
+            form.reset()
+            
+        }
+
+        // console.log(date, hours, minutes)
+
+        // onAdd({ date, hours, minutes })
+        // form.reset()
+        
     }
 
     const toggleTheme = () => {
@@ -70,13 +89,17 @@ const Logger = ({ onAdd, shifts, theme, setTheme }) => {
             </div>
 
             {/* Form w/ Toggle */}
-            {showForm && <form onSubmit={updateLog} id="form" className="mt-2">
+            <form onSubmit={updateLog} id="form" className="mt-2" style={{
+                display: !showForm && 'none'
+            }}>
                 <div className="form-group">
                     <label htmlFor="date">Date</label>
                     <input 
-                        type="date" className="form-control" 
+                        type="text" 
+                        className="form-control" 
                         id="date"
-                        onChange={(e) => setDate(e.target.value.split('-').reverse().join('.'))} 
+                        placeholder="dd.mm.yyyy"
+                        autoComplete="off"
                         required
                     />
                 </div>
@@ -85,7 +108,6 @@ const Logger = ({ onAdd, shifts, theme, setTheme }) => {
                     <input 
                         type="number" className="form-control" 
                         id="hours"
-                        onInput={(e) => setHours(e.target.value)}
                         onWheel={(e) => e.target.blur()}
                         placeholder="0" 
                         min="0" 
@@ -96,7 +118,6 @@ const Logger = ({ onAdd, shifts, theme, setTheme }) => {
                     <input 
                         type="number" className="form-control" 
                         id="minutes"
-                        onInput={(e) => setMinutes(e.target.value)}
                         onWheel={(e) => e.target.blur()}
                         placeholder="0" 
                         min="0" 
@@ -105,7 +126,6 @@ const Logger = ({ onAdd, shifts, theme, setTheme }) => {
                 </div>
                 <button type="submit" className="btn btn-success mt-3" id="submit-btn">Submit</button>
             </form>
-            }   
         </div>
     )
 }

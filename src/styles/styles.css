@@ -50,7 +50,15 @@ body {
   align-self: center;   
 }
 
+.edit-btn {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-self: center;   
+}
+
 .total-wrapper {
   display: flex;
   justify-content: space-between;
 }
+

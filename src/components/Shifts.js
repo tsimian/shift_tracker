@@ -1,6 +1,6 @@
 import Shift from './Shift'
 
-const Shifts = ({ shifts, onDelete, theme }) => {
+const Shifts = ({ shifts, onDelete, onEdit, theme }) => {
 
     return (
         <div className="container mt-3">
@@ -11,12 +11,15 @@ const Shifts = ({ shifts, onDelete, theme }) => {
                         <th>Hours</th>
                         <th>Minutes</th>
                         <th>Remove</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody className="text-center">
                     {shifts.map(shift => {
                         return (
-                            <Shift key={shift.id} shift={shift} onDelete={onDelete} />
+                            <Shift key={shift.id} shift={shift} onDelete={onDelete}
+                            onEdit={onEdit}
+                            />
                         )
                     })}
                 </tbody>
