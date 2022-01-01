@@ -92,6 +92,11 @@ function App() {
       body: JSON.stringify(shift)
     })
 
+    if (shift.minutes >= 60) {
+      shift.minutes = shift.minutes % 60
+      shift.hours += 1
+    }
+
     setShifts([...shifts])
 
   }
