@@ -27,7 +27,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lehmannrobb/shift_tracker.git"
+    "url": "https://github.com/tsimian/shift_tracker.git"
   },
   "eslintConfig": {
     "extends": [
